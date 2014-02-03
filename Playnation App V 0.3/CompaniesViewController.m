@@ -32,6 +32,11 @@
 
     self.title = @"Companies";
     
+    CompaniesViewController * managedObjectContext = [[CompaniesViewController alloc] init];
+    [yourClassInstance someMethod];
+    
+    NSManagedObjectContext *context = [managedObjectContext];
+    
     
     //  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     

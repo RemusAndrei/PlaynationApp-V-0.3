@@ -41,6 +41,7 @@
 		60253C36189BBE9F008B0243 /* UITabBarController+ShowHideBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 60253C34189BBE9F008B0243 /* UITabBarController+ShowHideBar.m */; };
 		60253C39189BBF9B008B0243 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 60253C37189BBF9B008B0243 /* menu.png */; };
 		60253C3A189BBF9B008B0243 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60253C38189BBF9B008B0243 /* menu@2x.png */; };
+		AA318B2D189FBB49000A9CC0 /* Companies.m in Sources */ = {isa = PBXBuildFile; fileRef = AA318B2C189FBB49000A9CC0 /* Companies.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,8 @@
 		60253C34189BBE9F008B0243 /* UITabBarController+ShowHideBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+ShowHideBar.m"; sourceTree = "<group>"; };
 		60253C37189BBF9B008B0243 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		60253C38189BBF9B008B0243 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		AA318B2B189FBB49000A9CC0 /* Companies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Companies.h; sourceTree = "<group>"; };
+		AA318B2C189FBB49000A9CC0 /* Companies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Companies.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +259,8 @@
 		60253C04189BBBCC008B0243 /* Companies */ = {
 			isa = PBXGroup;
 			children = (
+				AA318B2B189FBB49000A9CC0 /* Companies.h */,
+				AA318B2C189FBB49000A9CC0 /* Companies.m */,
 				60253C1E189BBC6E008B0243 /* CompaniesViewController.h */,
 				60253C1F189BBC6E008B0243 /* CompaniesViewController.m */,
 				60253C20189BBC6E008B0243 /* CompaniesDetailedViewController.h */,
@@ -397,6 +402,7 @@
 				60253C0A189BBC14008B0243 /* NewsViewController.m in Sources */,
 				60253C35189BBE9F008B0243 /* NSString+StripHTMLwithRegEX.m in Sources */,
 				60253C11189BBC37008B0243 /* GamesDetailedViewController.m in Sources */,
+				AA318B2D189FBB49000A9CC0 /* Companies.m in Sources */,
 				60253C23189BBC6E008B0243 /* CompaniesDetailedViewController.m in Sources */,
 				60253C2E189BBCB4008B0243 /* SlidebarViewController.m in Sources */,
 				60253C36189BBE9F008B0243 /* UITabBarController+ShowHideBar.m in Sources */,
