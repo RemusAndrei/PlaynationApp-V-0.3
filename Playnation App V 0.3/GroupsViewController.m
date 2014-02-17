@@ -9,6 +9,8 @@
 #import "GroupsViewController.h"
 #import "NSString+StripHTMLwithRegEX.h"
 #import "SWRevealViewController.h"
+#import "NewsOfGroupsView.h"
+#import "GroupsCell.h"
 
 @interface GroupsViewController ()
 
@@ -30,6 +32,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    // Custom TableView Background
+    self.parentViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"common_bg"]];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
+    UIEdgeInsets inset = UIEdgeInsetsMake(1, 0, 0, 0);
+    self.tableView.contentInset = inset;
+    
     
     self.title = @"Groups";
     
@@ -109,17 +120,48 @@
     return [groupJsonWrapper count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//Set the background of the cell
+
+- (UIImage *)cellBackgroundForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"groupsCell"];
+    NSInteger rowCount = [self tableView:[self tableView] numberOfRowsInSection:0];
+    NSInteger rowIndex = indexPath.row;
+    UIImage *background = nil;
     
-    if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"groupsCell"];
+    if (rowIndex == 0) {
+        background = [UIImage imageNamed:@"cell_background"];
+    } else if (rowIndex == rowCount - 1) {
+        background = [UIImage imageNamed:@"cell_background"];
+    } else {
+        background = [UIImage imageNamed:@"cell_background"];
     }
     
-    cell.textLabel.text = [[groupTableArray objectAtIndex:indexPath.row] objectForKey:@"GroupName"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@ ",[[groupTableArray objectAtIndex:indexPath.row] objectForKey:@"GroupType1"], [[groupTableArray objectAtIndex:indexPath.row] objectForKey:@"GroupType2"] ];
+    return background;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    GroupsCell *cell = (GroupsCell *)[tableView dequeueReusableCellWithIdentifier:@"groupsCell"];
     
+    if(cell == nil){
+        cell = [[GroupsCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"groupsCell"];
+    }
+    cell.groupNameLabel.text = [[groupTableArray objectAtIndex:indexPath.row] objectForKey:@"GroupName"];
+    cell.groupTypeLabel.text = [NSString stringWithFormat:@"%@ - %@ ",[[groupTableArray objectAtIndex:indexPath.row] objectForKey:@"GroupType1"], [[groupTableArray objectAtIndex:indexPath.row] objectForKey:@"GroupType2"] ];
+    cell.groupImage.image = [UIImage imageNamed:@"playnationLogo.png"];
+    cell.groupImage.clipsToBounds = YES;
+    cell.groupImage.layer.borderWidth = 2.0f;
+    cell.groupImage.layer.borderColor = [UIColor colorWithWhite:1.0f alpha:0.5f].CGColor;
+    cell.groupImage.layer.cornerRadius = 25.0f;
+    cell.groupMemberNoLabel.text = [[groupTableArray objectAtIndex:indexPath.row] objectForKey:@"MemberCount"];
+   
+    
+    UIImage *background = [self cellBackgroundForRowAtIndexPath:indexPath];
+    UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background];
+    cellBackgroundView.image = background;
+    cell.backgroundView = cellBackgroundView;
+    
+  
     return cell;
 }
 
@@ -176,7 +218,7 @@
         groupsDestViewController.groupCreatedBy = [[groupTableArray objectAtIndex:indexPath.row] objectForKey:@"DisplayName"];
         groupsDestViewController.groupMembers = [[groupTableArray objectAtIndex:indexPath.row] objectForKey:@"MemberCount"];
         groupsDestViewController.dateCreated = [[groupTableArray objectAtIndex:indexPath.row] objectForKey:@"CreatedTime"];
-        groupsDestViewController.groupDesciption = [[groupTableArray objectAtIndex:indexPath.row] objectForKey:@"GroupDesc"];
+        groupsDestViewController.groupDescription = [[groupTableArray objectAtIndex:indexPath.row] objectForKey:@"GroupDesc"];
     }
 }
 

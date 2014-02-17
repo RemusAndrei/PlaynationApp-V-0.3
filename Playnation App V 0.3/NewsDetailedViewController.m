@@ -17,6 +17,7 @@
 @implementation NewsDetailedViewController
 @synthesize headerLabel,newsTextView;
 @synthesize headline,newsText;
+@synthesize firstView,secondView,thirdView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,4 +50,32 @@
     return YES;
 }
 
+- (IBAction)segmenValueChanged:(UISegmentedControl *)sender {
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            self.secondView.hidden = YES;
+            self.thirdView.hidden = NO;
+            self.firstView.hidden = YES;
+            break;
+            
+        case 1:
+            self.secondView.hidden = YES;
+            self.thirdView.hidden = YES;
+            self.firstView.hidden = NO;
+            break;
+        
+        case 2:
+            self.secondView.hidden = NO;
+            self.thirdView.hidden = YES;
+            self.firstView.hidden = YES;
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    
+    
+}
 @end

@@ -9,6 +9,7 @@
 #import "PlayersViewController.h"
 #import "NSString+StripHTMLwithRegEX.h"
 #import "SWRevealViewController.h"
+#import "PlayerCell.h"
 
 @interface PlayersViewController ()
 
@@ -40,6 +41,13 @@
         
         // Set the gesture
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+        
+        //Custom TableView Background
+        self.parentViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"common_bg"]];
+        self.tableView.backgroundColor = [UIColor clearColor];
+        UIEdgeInsets inset =UIEdgeInsetsMake(1, 0, 0, 0);
+        self.tableView.contentInset = inset;
+        [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
         
         //  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         
@@ -114,16 +122,45 @@
     return [playerJsonWrapper count];
 }
 
+-(UIImage *) cellBackgroundForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UIImage *backgroundCell = [UIImage imageNamed:@"cell_background"];
+    return backgroundCell;
+    
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"playersCell"];
+    PlayerCell *cell = (PlayerCell *) [tableView dequeueReusableCellWithIdentifier:@"playersCell"];
     
     if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"playersCell"];
+        cell = [[PlayerCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"playersCell"];
     }
     
-    cell.textLabel.text = [[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"LastName"];
-    cell.detailTextLabel.text = [[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"FirstName"];
+    cell.playerFirstAndLastNameLabel.text = [NSString stringWithFormat:@"%@ %@", [[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"FirstName"],[[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"LastName"]] ;
+    cell.playerNickLabel.text = [[playerJsonWrapper objectAtIndex:indexPath.row] objectForKey:@"NickName"];
+    
+    
+    
+//    if ([[[playerJsonWrapper objectAtIndex:indexPath.row] objectForKey:@"DateOfBirth"]isKindOfClass:[NSString class]]){
+//        NSDate *birthday =[[playerJsonWrapper objectAtIndex:indexPath.row] objectForKey:@"DateOfBirth"];
+//        NSDate *now= [NSDate date];
+//        NSDateComponents *ageComponents = [[NSCalendar currentCalendar]components: NSYearCalendarUnit fromDate:birthday toDate:now options:0];
+//        NSInteger age = [ageComponents year];
+//        cell.playerAgeLabel.text =[NSString stringWithFormat:@"%ld",(long)age];
+//
+//        
+//    }else{
+//        cell.playerAgeLabel.text = @"0";
+//    }
+        cell.playerCountryLabel.text = [[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"Country"];
+    cell.playerImageView.image = [UIImage imageNamed:@"playnationLogo.png"];
+    cell.playerImageView.clipsToBounds = YES;
+    
+    UIImage *background = [self cellBackgroundForRowAtIndexPath:indexPath];
+    UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background];
+    cellBackgroundView.image = background;
+    cell.backgroundView = cellBackgroundView;
     
     return cell;
 }
@@ -177,12 +214,11 @@
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         PlayersViewController *playerDestViewController = segue.destinationViewController;
-        playerDestViewController.playerFirstName = [[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"FirstName"];
-        playerDestViewController.playerLastName = [[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"LastName"];
-        playerDestViewController.playerNick = [[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"NickName"];
-        playerDestViewController.playerAge = [[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"DateOfBirth"];
-        playerDestViewController.playerCity = [[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"City"];
-        playerDestViewController.playerCountry = [[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"Country"];
+        playerDestViewController.playerName = [NSString stringWithFormat:@"%@ %@",[[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"FirstName"],[[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"LastName"]];
+        playerDestViewController.playerNickname = [[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"NickName"];
+        playerDestViewController.playerBirthday = [[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"DateOfBirth"];
+        playerDestViewController.playerAddress = [NSString stringWithFormat:@"%@ %@ %@", [[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"Address"] ,[[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"City"] ,[[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"Country"] ] ;
+        playerDestViewController.playerRating = [[playerTableArray objectAtIndex:indexPath.row] objectForKey:@"Country"];
         
     }
 }

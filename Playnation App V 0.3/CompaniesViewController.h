@@ -15,4 +15,14 @@
 @property (strong,nonatomic) NSArray *companiesTableArray;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
+@property (strong, nonatomic) NSString *companiesProfilePic;
+@property (strong, nonatomic) NSString *companyName;
+@property (strong, nonatomic) NSString *companyType;
+@property (strong, nonatomic) NSString *companyHeadquarter;
+@property (strong, nonatomic) NSString *companyNoOfEmployees;
+@property (strong, nonatomic) NSString *companyFounded;
+@property (strong, nonatomic) NSString *companyWebsite;
+@property (strong, nonatomic) NSString *companyJoined;
+@property (strong, nonatomic) NSString *companyDescription;
+
 @end

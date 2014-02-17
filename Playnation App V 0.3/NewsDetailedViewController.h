@@ -13,4 +13,9 @@
 @property (strong, nonatomic) IBOutlet UITextView *newsTextView;
 @property (weak, nonatomic)NSString *headline;
 @property (weak, nonatomic)NSString *newsText;
+@property (strong, nonatomic) IBOutlet UIView *firstView;
+@property (strong, nonatomic) IBOutlet UIView *secondView;
+@property (strong, nonatomic) IBOutlet UIView *thirdView;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmenCont;
+- (IBAction)segmenValueChanged:(id)sender;
 @end

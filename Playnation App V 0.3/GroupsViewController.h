@@ -19,7 +19,8 @@
 @property (weak,nonatomic) NSString *groupCreatedBy;
 @property (weak,nonatomic) NSString *groupMembers;
 @property (weak,nonatomic) NSString *dateCreated;
-@property (weak,nonatomic) NSString *groupDesciption;
+@property (weak,nonatomic) NSString *groupDescription;
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 @end

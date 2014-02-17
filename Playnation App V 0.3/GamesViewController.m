@@ -9,6 +9,7 @@
 #import "GamesViewController.h"
 #import "NSString+StripHTMLwithRegEX.h"
 #import "SWRevealViewController.h"
+#import "GamesCell.h"
 
 @interface GamesViewController ()
 
@@ -37,6 +38,15 @@
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    
+    //Custom TableView Background
+    self.parentViewController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"common_bg"]];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    UIEdgeInsets inset =UIEdgeInsetsMake(1, 0, 0, 0);
+    self.tableView.contentInset = inset;
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+
     
     //  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
@@ -111,15 +121,22 @@
     return [gamesJsonWrapper count];
 }
 
+-(UIImage *) cellBackgroundForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UIImage *backgroundCell = [UIImage imageNamed:@"cell_background"];
+    return backgroundCell;
+    
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"gamesCell"];
+    GamesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"gamesCell"];
     
     if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"gamesCell"];
+        cell = [[GamesCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"gamesCell"];
     }
     
-    cell.textLabel.text = [[gamesTableArray objectAtIndex:indexPath.row] objectForKey:@"GameName"];
+    cell.gamesName.text = [[gamesTableArray objectAtIndex:indexPath.row] objectForKey:@"GameName"];
     
     if ([[[gamesTableArray objectAtIndex:indexPath.row] objectForKey:@"Developer"] isKindOfClass:[NSString class]]){
         cell.detailTextLabel.text = [[gamesTableArray objectAtIndex:indexPath.row] objectForKey:@"Developer"];
@@ -128,6 +145,16 @@
     }else{
     cell.detailTextLabel.text = @"Companie";
     }
+    
+    
+    cell.gamesImage.image = [UIImage imageNamed:@"playnationLogo.png"];
+    cell.gamesImage.clipsToBounds = YES;
+    
+    UIImage *background = [self cellBackgroundForRowAtIndexPath:indexPath];
+    UIImageView *cellBackgroundView = [[UIImageView alloc] initWithImage:background];
+    cellBackgroundView.image = background;
+    cell.backgroundView = cellBackgroundView;
+
     return cell;
 }
 

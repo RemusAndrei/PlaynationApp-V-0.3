@@ -16,11 +16,12 @@
 @property (strong,nonatomic) NSArray *playerJsonWrapper;
 @property (strong,nonatomic) NSArray *playerTableArray;
 
-@property(weak, nonatomic)NSString *playerFirstName;
-@property(weak, nonatomic)NSString *playerLastName;
-@property(weak, nonatomic)NSString *playerNick;
-@property(weak, nonatomic)NSString *playerAge;
-@property(weak, nonatomic)NSString *playerCity;
-@property(weak, nonatomic)NSString *playerCountry;
+@property (strong, nonatomic) NSString *playerNickname;
+@property (strong, nonatomic) NSString *playerName;
+@property (strong, nonatomic) NSString *playerAddress;
+@property (strong, nonatomic) NSString *playerBirthday;
+@property (strong, nonatomic) NSString *playerJoined;
+@property (strong, nonatomic) NSString *playerRating;
+
 
 @end
