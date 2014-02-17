@@ -10,4 +10,12 @@
 
 @interface Companies (Create)
 
++ (Companies *)companyWithInfo:(NSDictionary *)companyDictionary
+        inManagedObjectContext:(NSManagedObjectContext *)context;
+
++ (void)loadCompaniesFromArray:(NSArray *)companiesArray // of Flickr NSDictionary
+         intoManagedObjectContext:(NSManagedObjectContext *)context;
+
+
+
 @end

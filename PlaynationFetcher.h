@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+
+#define ID_COMPANY @"ID_COMPANY"
+#define ID_NEWS @"ID_NEWS"
+#define ID_GROUP @"ID_GROUP"
+#define ID_PLAYER @"ID_PLAYER"
+
 @interface PlaynationFetcher : NSObject
 
 @end

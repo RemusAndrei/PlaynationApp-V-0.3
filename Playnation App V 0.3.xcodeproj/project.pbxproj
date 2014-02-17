@@ -42,6 +42,9 @@
 		60253C39189BBF9B008B0243 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 60253C37189BBF9B008B0243 /* menu.png */; };
 		60253C3A189BBF9B008B0243 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60253C38189BBF9B008B0243 /* menu@2x.png */; };
 		AA318B2D189FBB49000A9CC0 /* Companies.m in Sources */ = {isa = PBXBuildFile; fileRef = AA318B2C189FBB49000A9CC0 /* Companies.m */; };
+		AA318B30189FBDA8000A9CC0 /* Companies+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = AA318B2F189FBDA8000A9CC0 /* Companies+Create.m */; };
+		AA318B33189FDCC2000A9CC0 /* AppDelegate+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = AA318B32189FDCC2000A9CC0 /* AppDelegate+CoreData.m */; };
+		AA318B3718A1346F000A9CC0 /* PlaynationFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AA318B3618A1346F000A9CC0 /* PlaynationFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +113,13 @@
 		60253C38189BBF9B008B0243 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		AA318B2B189FBB49000A9CC0 /* Companies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Companies.h; sourceTree = "<group>"; };
 		AA318B2C189FBB49000A9CC0 /* Companies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Companies.m; sourceTree = "<group>"; };
+		AA318B2E189FBDA8000A9CC0 /* Companies+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Companies+Create.h"; sourceTree = "<group>"; };
+		AA318B2F189FBDA8000A9CC0 /* Companies+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Companies+Create.m"; sourceTree = "<group>"; };
+		AA318B31189FDCC2000A9CC0 /* AppDelegate+CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+CoreData.h"; sourceTree = "<group>"; };
+		AA318B32189FDCC2000A9CC0 /* AppDelegate+CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+CoreData.m"; sourceTree = "<group>"; };
+		AA318B34189FE3D8000A9CC0 /* CompanyDatabaseAvailability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CompanyDatabaseAvailability.h; sourceTree = "<group>"; };
+		AA318B3518A1346F000A9CC0 /* PlaynationFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaynationFetcher.h; sourceTree = "<group>"; };
+		AA318B3618A1346F000A9CC0 /* PlaynationFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaynationFetcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +151,8 @@
 		60253BBE189BAFFD008B0243 = {
 			isa = PBXGroup;
 			children = (
+				AA318B3518A1346F000A9CC0 /* PlaynationFetcher.h */,
+				AA318B3618A1346F000A9CC0 /* PlaynationFetcher.m */,
 				60253BD2189BAFFD008B0243 /* Playnation App V 0.3 */,
 				60253BEF189BB002008B0243 /* Playnation App V 0.3Tests */,
 				60253BC9189BAFFD008B0243 /* Frameworks */,
@@ -180,6 +192,9 @@
 				60253C01189BBBAB008B0243 /* News */,
 				60253BDB189BAFFE008B0243 /* AppDelegate.h */,
 				60253BDC189BAFFE008B0243 /* AppDelegate.m */,
+				AA318B34189FE3D8000A9CC0 /* CompanyDatabaseAvailability.h */,
+				AA318B31189FDCC2000A9CC0 /* AppDelegate+CoreData.h */,
+				AA318B32189FDCC2000A9CC0 /* AppDelegate+CoreData.m */,
 				60253BFF189BBB4E008B0243 /* Main.storyboard */,
 				60253BE1189BAFFF008B0243 /* Images.xcassets */,
 				60253C37189BBF9B008B0243 /* menu.png */,
@@ -261,6 +276,8 @@
 			children = (
 				AA318B2B189FBB49000A9CC0 /* Companies.h */,
 				AA318B2C189FBB49000A9CC0 /* Companies.m */,
+				AA318B2E189FBDA8000A9CC0 /* Companies+Create.h */,
+				AA318B2F189FBDA8000A9CC0 /* Companies+Create.m */,
 				60253C1E189BBC6E008B0243 /* CompaniesViewController.h */,
 				60253C1F189BBC6E008B0243 /* CompaniesViewController.m */,
 				60253C20189BBC6E008B0243 /* CompaniesDetailedViewController.h */,
@@ -395,6 +412,7 @@
 			files = (
 				60253C1D189BBC64008B0243 /* GroupsDetailedViewController.m in Sources */,
 				60253C30189BBCB4008B0243 /* MessagesViewController.m in Sources */,
+				AA318B30189FBDA8000A9CC0 /* Companies+Create.m in Sources */,
 				60253BDD189BAFFE008B0243 /* AppDelegate.m in Sources */,
 				60253C16189BBC49008B0243 /* PlayersViewController.m in Sources */,
 				60253BD9189BAFFE008B0243 /* main.m in Sources */,
@@ -407,12 +425,14 @@
 				60253C2E189BBCB4008B0243 /* SlidebarViewController.m in Sources */,
 				60253C36189BBE9F008B0243 /* UITabBarController+ShowHideBar.m in Sources */,
 				60253C1C189BBC64008B0243 /* GroupsViewController.m in Sources */,
+				AA318B3718A1346F000A9CC0 /* PlaynationFetcher.m in Sources */,
 				60253C10189BBC37008B0243 /* GamesViewController.m in Sources */,
 				60253C2F189BBCB4008B0243 /* SWRevealViewController.m in Sources */,
 				60253C0B189BBC14008B0243 /* NewsDetailedViewController.m in Sources */,
 				60253C2D189BBCB4008B0243 /* MainViewController.m in Sources */,
 				60253C22189BBC6E008B0243 /* CompaniesViewController.m in Sources */,
 				60253C17189BBC49008B0243 /* PlayersDetailedViewController.m in Sources */,
+				AA318B33189FDCC2000A9CC0 /* AppDelegate+CoreData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,4 +10,6 @@
 
 @interface AppDelegate (CoreData)
 
+- (NSManagedObjectContext *)createMainQueueManagedObjectContext;
+
 @end

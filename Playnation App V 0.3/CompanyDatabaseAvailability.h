@@ -9,6 +9,7 @@
 #ifndef Playnation_App_V_0_3_CompanyDatabaseAvailability_h
 #define Playnation_App_V_0_3_CompanyDatabaseAvailability_h
 
-
+#define CompanyDatabaseAvailabilityNotification @"CompanyDatabaseAvailabilityNotification"
+#define CompanyDatabaseAvailabilityContext @"Context"
 
 #endif
